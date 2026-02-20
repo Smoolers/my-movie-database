@@ -1,4 +1,3 @@
-
 // Tar emot en film, och dess nummer i ordningen 1-5
 export function renderTrailer(movie, num) {
     const iFrameRef = document.createElement(`iframe`);
@@ -8,12 +7,12 @@ export function renderTrailer(movie, num) {
 
     const trailerList = document.querySelectorAll(`.trailers__video`);
     const trailerArray = Array.from(trailerList);
-    
-    document.querySelectorAll(`.trailers__arrow`).forEach(arrow => {
+
+    document.querySelectorAll(`.trailers__arrow`).forEach((arrow) => {
         arrow.addEventListener(`click`, (event) => {
             changeTrailer(event, trailerList, trailerArray);
         });
-    })
+    });
 }
 
 function changeTrailer(event, trailerList, trailerArray) {
@@ -23,18 +22,17 @@ function changeTrailer(event, trailerList, trailerArray) {
         trailerArray.unshift(trailerArray.pop());
     }
 
-    trailerList.forEach(item => {
+    trailerList.forEach((item) => {
         item.classList.remove(
             `trailers__video-1`,
             `trailers__video-2`,
             `trailers__video-3`,
             `trailers__video-4`,
-            `trailers__video-5`
+            `trailers__video-5`,
         );
     });
 
     trailerArray.slice(0, 5).forEach((item, i) => {
-        item.classList.add(`trailers__video-${i + 1}`)
+        item.classList.add(`trailers__video-${i + 1}`);
     });
 }
-

@@ -1,4 +1,4 @@
-![logo](/template/res/logo.png)
+![logo](/res/logo.png)
 
 # Individuellt examensarbete - MyMovieDatabase
 
@@ -12,7 +12,7 @@ Hej där, kodmästare! Det är dags att sätta på våra virtuella regissörskep
 
 ### Uppgift
 
-Ditt uppdrag är att skapa en webbapplikation som liknar IMBD (Internet Movie Database) där användare kan söka efter filmer, visa detaljerad information om filmer och lista sina favoritfilmer med mera.
+Ditt uppdrag är att skapa en webbapplikation som liknar IMDB (Internet Movie Database) där användare kan söka efter filmer, visa detaljerad information om filmer och lista sina favoritfilmer med mera.
 
 I repot hittar ni mappen **template** innehållandes startkod som ni får använda er av. Ni får jättegärna hitta på en egen design också, men i template-mappen hittar ni ett tema med filer osv som ni kan köra vidare på om så önskas. Väljer ni att skapa någonting eget så förväntar jag mig att ambitionsnivån rent stilistiskt MINST når upp till den applikation som visas under genomgången.
 

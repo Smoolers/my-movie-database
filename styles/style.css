@@ -1,0 +1,135 @@
+@import url("./carousel.css");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Variables */
+:root {
+    --header-grey: #121212;
+    --primary-bg: #000000;
+    --primary-white: #ffffff;
+    --primary-grey: #1a1a1a;
+    --text-yellow: #f5c518;
+}
+
+/* Base */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--primary-bg);
+    max-width: 100%;
+}
+
+/* Utils */
+.content-wrapper {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.center {
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 2rem;
+
+    .center__recommendations-title {
+        color: var(--primary-white);
+    }
+
+    .center__movies-container-wrapper {
+        align-self: stretch;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .center__movies-container {
+        /* display: flex;
+        justify-content: center;
+        flex-wrap: wrap; */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        width: 100%;
+        gap: 1rem;
+
+        /* .center__movie-card {
+            width: 250px;
+        } */
+
+        .center__movie-card-poster {
+            width: 100%;
+        }
+
+        .center__movie-card-title {
+            color: var(--primary-white);
+        }
+    }
+}
+
+.d-none {
+    display: none;
+}
+
+/* Header */
+.header {
+    background-color: var(--header-grey);
+    width: 100%;
+    padding: 1.5rem;
+    z-index: 999;
+}
+
+.header__flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    width: 150px;
+    background-color: yellow;
+}
+
+.header__form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.header__input {
+    width: 50%;
+    padding: 1rem;
+    border-radius: 2rem 0 0 2rem;
+    border: none;
+}
+
+.header__form-btn {
+    border-radius: 0 2rem 2rem 0;
+    width: 5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.header__fav-btn {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--text-yellow);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* search.html */
+
+.center--search-results {
+    margin-top: 2rem;
+
+    .center__search-results-title {
+        color: var(--primary-white);
+    }
+}
