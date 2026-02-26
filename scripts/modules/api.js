@@ -1,3 +1,5 @@
+// Anropa rekommenderade filmer
+
 export async function fetchRecommendedMovies() {
     try {
         const response = await fetch(
@@ -10,6 +12,8 @@ export async function fetchRecommendedMovies() {
         return [];
     }
 }
+
+// Anropa filmdatabasen för bred filmsökning
 
 export async function fetchSearch(query) {
     try {
@@ -24,6 +28,8 @@ export async function fetchSearch(query) {
     }
 }
 
+// Anropa filmdatabasen för detaljerad sökning på specifik film
+
 export async function fetchDetails(id) {
     try {
         const response = await fetch(
@@ -37,4 +43,4 @@ export async function fetchDetails(id) {
     }
 }
 
-// Exportera för import i script.js
+// Exportera till script.js

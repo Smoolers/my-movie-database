@@ -1,14 +1,24 @@
 import { createMovieCard } from "../components/movieCard.js";
+import { createDetailedMovieCard } from "../components/movieDetails.js";
 
-// Rendera ut de mottagna Movie Card-objekten i content-wrapper (index.html)
+// Rendera ut Movie Card-objekten i index.html, search.html och favorites.html
 
-export function renderMovieCards(movies) {
+export async function renderMovieCards(movies) {
     const moviesContainer = document.querySelector(".center__movies-container");
-    // Rensa containern först
     moviesContainer.innerHTML = "";
     for (let movie of movies) {
-        moviesContainer.appendChild(createMovieCard(movie));
+        const movieCard = await createMovieCard(movie);
+        moviesContainer.appendChild(movieCard);
     }
 }
 
-// Exportera för import i script.js
+// Rendera ut de detaljerade Movie Card-objekten i movie.html
+
+export async function renderDetailedMovieCard(movie) {
+    const moviesContainer = document.querySelector(".center__movies-container");
+    moviesContainer.innerHTML = "";
+    const detailedMovieCard = await createDetailedMovieCard(movie);
+    moviesContainer.appendChild(detailedMovieCard);
+}
+
+// Exportera till script.js (för rendering på respektive sida)

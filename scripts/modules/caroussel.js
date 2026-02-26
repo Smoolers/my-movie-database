@@ -1,4 +1,5 @@
 // Tar emot en film, och dess nummer i ordningen 1-5
+
 export function renderTrailer(movie, num) {
     const iFrameRef = document.createElement(`iframe`);
     iFrameRef.classList.add(`trailers__video`, `trailers__video-${num}`);

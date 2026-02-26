@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 /* Variables */
+
 :root {
     --header-grey: #121212;
     --primary-bg: #000000;
@@ -11,6 +12,7 @@
 }
 
 /* Base */
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -18,11 +20,28 @@
 }
 
 body {
+    font-family: "Montserrat", sans-serif;
     background-color: var(--primary-bg);
     max-width: 100%;
 }
 
+body::before {
+    background-image: url(../res/cinema-felix-mooneeram.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* position: fixed gör att pseudo-elementet täcker hela viewport */
+    position: fixed;
+    content: "";
+    inset: 0;
+    /* backdrop-filter: blur(5px); - som referens, behövs ej */
+    filter: blur(5px);
+    /* z-index: -1 lägger blurret bakom allt innehåll */
+    z-index: -1;
+}
+
 /* Utils */
+
 .content-wrapper {
     max-width: 1180px;
     margin: 0 auto;
@@ -30,46 +49,58 @@ body {
 
 .center {
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     gap: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 
-    .center__recommendations-title {
-        color: var(--primary-white);
-    }
+.center__recommendations-title {
+    color: var(--primary-white);
+}
 
-    .center__movies-container-wrapper {
-        align-self: stretch;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-bottom: 1rem;
-    }
+.center__movies-container-wrapper {
+    align-self: stretch;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
 
-    .center__movies-container {
-        /* display: flex;
-        justify-content: center;
-        flex-wrap: wrap; */
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        width: 100%;
-        gap: 1rem;
+.center__movies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    width: 100%;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+}
 
-        /* .center__movie-card {
-            width: 250px;
-        } */
+.center__movie-card-poster-and-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+    transition: transform 0.2s ease;
+}
 
-        .center__movie-card-poster {
-            width: 100%;
-        }
+.center__movie-card-poster-and-title:hover {
+    transform: scale(1.02);
+}
 
-        .center__movie-card-title {
-            color: var(--primary-white);
-        }
-    }
+.center__movie-card-poster {
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    aspect-ratio: 290 / 420;
+    object-fit: cover;
+}
+
+.center__movie-card-title {
+    color: var(--primary-white);
+    padding-left: 0.5rem;
+    border-left: 1px solid var(--primary-white);
 }
 
 .d-none {
@@ -77,6 +108,7 @@ body {
 }
 
 /* Header */
+
 .header {
     background-color: var(--header-grey);
     width: 100%;
@@ -109,6 +141,9 @@ body {
 }
 
 .header__form-btn {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 450;
+    background-color: #ebebeb;
     border-radius: 0 2rem 2rem 0;
     width: 5rem;
     border: none;
@@ -128,8 +163,229 @@ body {
 
 .center--search-results {
     margin-top: 2rem;
+}
 
-    .center__search-results-title {
-        color: var(--primary-white);
+.center__search-results-title {
+    color: var(--primary-white);
+}
+
+/* favorites.html */
+
+.center__favorites-title {
+    color: var(--primary-white);
+    padding-top: 2rem;
+}
+
+/* movie.html */
+
+.center__detailed-movie-card {
+    padding-top: 1rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    padding-bottom: 2rem;
+}
+
+.center__detailed-movie-card-container-title-button {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.center__detailed-movie-card-title {
+    padding-left: 1rem;
+    border-left: 1px solid var(--primary-white);
+    align-self: center;
+}
+
+.center__detailed-movie-card-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.1rem 2.5rem;
+    cursor: pointer;
+    background-color: #000000;
+    border: none;
+    color: var(--primary-white);
+    border-radius: 50px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    position: relative;
+}
+.center__detailed-movie-card-button::after {
+    content: "";
+    position: absolute;
+    height: 107%;
+    width: 102%;
+    border-radius: 50px;
+    background-image: linear-gradient(
+        to bottom right,
+        var(--text-yellow),
+        var(--text-yellow)
+    );
+    z-index: -1;
+}
+.center__detailed-movie-card-button:hover {
+    color: #000000;
+    z-index: 0;
+    box-shadow:
+        20px 0 50px #f5c5182c,
+        -20px 0 50px #f5c5182a;
+}
+
+.center__detailed-movie-card-container-poster-and-info {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.center__detailed-movie-card-poster {
+    border-radius: 5px;
+}
+
+.center__detailed-movie-card-container-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.center__detailed-movie-card-container-rgrrr {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--primary-white);
+    border-bottom: 1px solid var(--primary-white);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.center__detailed-movie-card-container-rated,
+.center__detailed-movie-card-container-genre,
+.center__detailed-movie-card-container-runtime,
+.center__detailed-movie-card-container-released,
+.center__detailed-movie-card-container-ratings {
+    color: var(--primary-white);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.center__detailed-movie-card-container-plot {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.center__detailed-movie-card-container-dwa {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--primary-white);
+    padding-top: 1rem;
+}
+
+.center__detailed-movie-card-container-director,
+.center__detailed-movie-card-container-writer,
+.center__detailed-movie-card-container-actors {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.center__detailed-movie-card-title,
+    /* .center__detailed-movie-card-rated,
+    .center__detailed-movie-card-genre,
+    .center__detailed-movie-card-runtime,
+    .center__detailed-movie-card-released,
+    .center__detailed-movie-card-ratings, */
+    .center__detailed-movie-card-plot-title,
+    .center__detailed-movie-card-plot-text,
+    .center__detailed-movie-card-director-title,
+    .center__detailed-movie-card-director-text,
+    .center__detailed-movie-card-writer-title,
+    .center__detailed-movie-card-writer-text,
+    .center__detailed-movie-card-actors-title,
+    .center__detailed-movie-card-actors-text {
+    color: var(--primary-white);
+}
+
+/* Media Queries */
+
+/* movie.html */
+
+@media (max-width: 750px) {
+    .center__detailed-movie-card {
+        padding-top: 0;
+    }
+    .center__detailed-movie-card-container-poster-and-info {
+        flex-direction: column;
+    }
+}
+
+/* index.html */
+
+@media (max-width: 550px) {
+    .header__flex {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .center {
+        padding-top: 2rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .center__movies-container {
+        padding-bottom: 1rem;
+    }
+
+    /* favorites.html, search.html, movie.html*/
+
+    .header__flex--favorites,
+    .header__flex--search-results,
+    .header__flex--movie {
+        flex-direction: row;
+    }
+
+    .center__favorites-title,
+    .center--search-results {
+        padding-top: 0;
+    }
+
+    /* movie.html */
+
+    .center--movie {
+        padding-top: 0;
+    }
+
+    .center__detailed-movie-card {
+        display: flex;
+        flex-direction: column;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .center__detailed-movie-card-container-title-button {
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+    }
+    .center__detailed-movie-card-button {
+        min-width: auto;
+        align-self: center;
+    }
+
+    .center__detailed-movie-card-title {
+        align-self: flex-start;
+    }
+
+    .center__detailed-movie-card-poster {
+        width: 100%;
+    }
+
+    .center__detailed-movie-card-container-rgrrr,
+    .center__detailed-movie-card-container-dwa {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.75rem;
     }
 }
