@@ -38,7 +38,7 @@ export function searchListener() {
         // "?" i url:en nedan visar att det som kommer efter är en querystringparameter
         // Först i den kommer nyckeln (här query), sen värdet (här searchText)
         // Man kan lägga till flera querystringparametrar med "&" emellan
-        location.href = `/search.html?query=${searchText}`;
+        location.href = `search.html?query=${searchText}`;
         // Obs! Nu dirigeras man alltså om! Fortsätt dit omdirigeringen skett (skriver du mer här händer det inte ett skvatt 😉)
     });
 }
@@ -51,7 +51,7 @@ export function posterClickListener() {
     );
     poster.forEach((poster) => {
         poster.addEventListener("click", (event) => {
-            location.href = `/movie.html?query=${poster.dataset.imdbid}`;
+            location.href = `movie.html?query=${poster.dataset.imdbid}`;
         });
     });
 }
