@@ -18,7 +18,7 @@ export async function fetchRecommendedMovies() {
 export async function fetchSearch(query) {
     try {
         const response = await fetch(
-            `http://www.omdbapi.com/?apikey=428d2381&s=${query}`,
+            `https://www.omdbapi.com/?apikey=428d2381&s=${query}`,
         );
         const data = await response.json();
         return data.Search;
@@ -33,7 +33,7 @@ export async function fetchSearch(query) {
 export async function fetchDetails(id) {
     try {
         const response = await fetch(
-            `http://www.omdbapi.com/?apikey=428d2381&plot=full&i=${id}`,
+            `https://www.omdbapi.com/?apikey=428d2381&plot=full&i=${id}`,
         );
         const data = await response.json();
         return data;
