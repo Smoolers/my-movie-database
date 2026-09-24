@@ -15,7 +15,7 @@ import {
 } from "./modules/gui.js";
 
 if (
-    window.location.pathname === "/" ||
+    window.location.pathname.endsWith("/") ||
     window.location.pathname.includes("index.html")
 ) {
     console.log("index.html");
